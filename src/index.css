@@ -1,8 +1,41 @@
 * {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
+  min-height: 100%;
 }
 
 body {
   margin: 0;
+  padding: 0;
+  background: url('../public/img/mario-bg.jpg') no-repeat;
+  background-size: 160%;
+  background-position: center;
+  background-color: #95e8f3;
+  min-height: 100%;
+}
+
+form {
+  padding: 20px;
+  margin-top: 60px;
+  box-shadow: 3px 5px 5px gray;
+}
+
+form button,
+form h5 {
+  margin: 20px auto;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-color: #66bb6a;
+  box-shadow: none;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label,
+input[type=email]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label {
+  color: #66bb6a !important;
 }
