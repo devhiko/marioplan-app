@@ -13,10 +13,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Dashboard />} />
-          <Route path='/project/:id' element={<ProjectDetails />} />
           <Route path='/signin' element={<SignIn />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/create' element={<CreateProject />} />
+          <Route path='/project/:id' element={<ProjectDetails />} />
         </Routes>
       </div>
     </Router>
