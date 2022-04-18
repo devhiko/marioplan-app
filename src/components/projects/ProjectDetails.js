@@ -21,6 +21,7 @@ const ProjectDetails = () => {
   );
 }
 // FIXME: ERROROROOAR HERE project is undefined ?!
+// TODO: rewrite here and refactor component for using hooks
 const mapStateToProps = (state, ownProps) => {
   // this line returns undefined
   const id = ownProps.match.params.id;

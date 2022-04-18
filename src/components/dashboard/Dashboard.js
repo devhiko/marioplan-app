@@ -27,7 +27,7 @@ class Dashboard extends Component {
     );
   }
 }
-
+// TODO: rewrite here and refactor component for using hooks
 // giving state for using as prop
 const mapStateToProps = (state) => {
   // console.log(state);
