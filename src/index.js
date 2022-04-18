@@ -1,44 +1,23 @@
-// v9 compat packages are API compatible with v8 code
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { getFirebase, ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import { applyMiddleware, createStore } from 'redux';
-import { createFirestoreInstance, getFirestore } from 'redux-firestore';
-import thunk from 'redux-thunk';
-import App from './App';
-import firebaseConfig from './config/firebaseConfig';
+import ReactDOM from 'react-dom';
 import './index.css';
-import rootReducer from './store/reducers/rootReducer';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import { createStore, applyMiddleware, compose } from 'redux'
+import rootReducer from './store/reducers/rootReducer'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import fbConfig from './config/fbConfig'
 
-const rrfConfig = {
-  userProfile: 'users'
-}
-
-firebase.initializeApp(firebaseConfig)
-
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore }))
+const store = createStore(rootReducer,
+  compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+    reactReduxFirebase(fbConfig), // redux binding for firebase
+    reduxFirestore(fbConfig) // redux bindings for firestore
+  )
 );
 
-const rrfProps = {
-  firebase,
-  config: rrfConfig,
-  dispatch: store.dispatch,
-  createFirestoreInstance
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ReactReduxFirebaseProvider {...rrfProps}>
-        <App />
-      </ReactReduxFirebaseProvider>
-    </Provider>
-  </React.StrictMode>
-);
-
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+registerServiceWorker();
