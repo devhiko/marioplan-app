@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 
-const ProjectDetails = (props) => {
+const ProjectDetails = () => {
   const { id } = useParams();
-  // console.log(props)
   return (
     <div className="container section project-details">
       <div className="card z-depth-0">
@@ -23,13 +22,12 @@ const ProjectDetails = (props) => {
 }
 // FIXME: ERROROROOAR HERE project is undefined ?!
 const mapStateToProps = (state, ownProps) => {
-  // const { id } = ownProps;
-  const projects = state
-  // .firestore.data.projects;
-  console.log(projects);
-  // const project = projects ? projects[id] : null;
+  // this line returns undefined
+  const id = ownProps.match.params.id;
+  const projects = state.firestore.data.projects;
+  const project = projects ? projects[id] : null;
   return {
-    // project: project,
+    project: project,
   }
 }
 
