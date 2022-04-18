@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url('../public/img/mario-bg.jpg') no-repeat;
+  background: url(/public/img/mario-bg.jpg) no-repeat;
   background-size: 160%;
   background-position: center;
   background-color: #95e8f3;
@@ -28,13 +28,9 @@ form h5 {
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
 input[type=password]:not(.browser-default):focus:not([readonly]),
-textarea.materialize-textarea:focus:not([readonly]) {
-  border-color: #66bb6a;
-  box-shadow: none;
-}
+
 
 input[type=text]:not(.browser-default):focus:not([readonly])+label,
-textarea.materialize-textarea:focus:not([readonly])+label,
 input[type=email]:not(.browser-default):focus:not([readonly])+label,
 input[type=password]:not(.browser-default):focus:not([readonly])+label {
   color: #66bb6a !important;

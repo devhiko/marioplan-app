@@ -28,11 +28,11 @@ class CreateProject extends Component {
             <label htmlFor="title">Project Title</label>
           </div>
           <div className="input-field">
-            <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
+            <input type="text" id="content" onChange={this.handleChange}></input>
             <label htmlFor="content">Project Content</label>
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1">Create</button>
+            <button className="btn green lighten-1">Create</button>
           </div>
         </form>
       </div>

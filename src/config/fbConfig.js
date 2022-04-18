@@ -1,4 +1,8 @@
-const firebaseConfig = {
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+
+const config = {
   apiKey: "AIzaSyCCq14Ow0ZKnladRjM5ThQthwxGwqaDDSU",
   authDomain: "mario-plan-project-29f2a.firebaseapp.com",
   projectId: "mario-plan-project-29f2a",
@@ -8,4 +12,8 @@ const firebaseConfig = {
   measurementId: "G-X7PFX0H7FH"
 };
 
-export default firebaseConfig;
+firebase.initializeApp(config);
+firebase.firestore().settings({ timestampsInSnapshots: true });
+
+
+export default firebase;
